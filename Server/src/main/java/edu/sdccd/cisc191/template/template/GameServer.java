@@ -18,6 +18,7 @@ public class GameServer extends Thread {
     public GameServer() {
         try {
             this.socket = new DatagramSocket(1331);
+            socket.setSoTimeout(60000); // Timeout delay
             System.out.println("Server started on: " + socket.getLocalPort());
         } catch (SocketException e) {
             e.printStackTrace();
